@@ -25,6 +25,7 @@ public class Practica2 {
         int op;
         boolean entrar= false;
         String codexperto="";
+        String especialidad= "";
         Scanner sc= new Scanner(System.in);
         
         do{
@@ -106,7 +107,31 @@ public class Practica2 {
                     System.in.read(); 
                     
                     break;
-                case 5:
+                    
+                case 5: //Mostrar todos los nombres y especialidad de los experto
+                    System.out.println();
+                    System.out.println("Mostrar todos los nombres y especialidad de los experto.");
+                    
+                    manejaexperto.obtenNombresyEspecialidad();                    
+                    break;                    
+                    
+                case 6: //Mostrar todos los expertos cuya especialidad sea pasada por parametro
+                    System.out.println();
+                    System.out.println("Mostrar todos los expertos cuya especialidad sea pasada por parametro.");
+                    System.out.print("Introduce la especialidad del experto a mostrar: ");
+                    especialidad= sc.nextLine();
+                    
+                    manejaexperto.listaConParametro(especialidad);                    
+                    break;
+                    
+                case 7: //Mostrar todos los expertos y todos los casos que haya participado
+                    System.out.println();
+                    System.out.println("Mostrar todos los expertos y todos los casos que haya participado.");
+                    
+                    manejaexperto.obtenCasos();                    
+                    break;
+                    
+                case 8:
                     System.exit(0);
                     break;
                 default:
@@ -114,7 +139,7 @@ public class Practica2 {
                     System.out.println("Opcion Incorrecta.");
                     break;                    
             }            
-        }while(op != 5);        
+        }while(op != 8);        
     }
 
     private static int Menu_Principal() {
@@ -128,7 +153,10 @@ public class Practica2 {
         System.out.println("Opcion 2: Eliminar un experto de la base de datos.");        
         System.out.println("Opcion 3: Actualizar un experto existente en la base de datos.");
         System.out.println("Opcion 4: Mostrar los datos de un experto.");
-        System.out.println("Opcion 5: Salir.");        
+        System.out.println("Opcion 5: Mostrar todos los nombres y especialidad de los experto.");
+        System.out.println("Opcion 6: Mostrar todos los expertos cuya especialidad sea pasada por parametro.");
+        System.out.println("Opcion 7: Mostrar todos los expertos y todos los casos que haya participado.");
+        System.out.println("Opcion 8: Salir.");        
         System.out.print("Escoga una opcion: ");
         return op= sc.nextInt();
     }    
